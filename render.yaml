@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: musicweb-cache-api
+    runtime: python
+    rootDir: fastapi-cache-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: CORS_ALLOWED_ORIGINS
+        value: "*"
+
+  - type: web
+    name: musicweb-media-api
+    runtime: docker
+    dockerfilePath: ./render-media-api/Dockerfile
+    plan: free

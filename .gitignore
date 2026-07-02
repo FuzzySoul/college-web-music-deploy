@@ -1,0 +1,80 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.codex/
+
+# Build output
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Backup files
+package - 副本.json
+*.bak
+*.tmp
+*.orig
+
+# Testing
+coverage/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# FastAPI cache
+fastapi-cache-service/.venv/
+fastapi-cache-service/__pycache__/
+fastapi-cache-service/cache/
+fastapi-cache-service/data/
+fastapi-cache-service/startup.log
+fastapi-cache-service/.omc/
+
+# NeteaseCloudMusicApi — deployed separately via fork
+NeteaseCloudMusicApi/
+
+# Local media (per老大 request)
+music/
+public/music/local/
+public/music/mv/
+public/music/
+yt-dlp.exe
+pied_piper.pdf
+test_crop_p1.png
+tracks500.json
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+.env.local
+.env*.local
+.env
+
+# Windows reserved device names (e.g. nul)
+nul
+NUL
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+.claude/
+.cursor/
+.hindsight/
+.hermes/

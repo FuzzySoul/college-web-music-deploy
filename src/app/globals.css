@@ -1,0 +1,1099 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Claude.ai 配色 - 温暖的米白色调 + 纸张质感 */
+  --background: #F5F1E9;  /* 米白色主背景 - 象牙纸色 */
+  --foreground: #1A1A1A;   /* 深黑色文字 */
+  --card: #FDFBF7;        /* 奶油白卡片 */
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  /* Claude橙色主题强调色 */
+  --primary: #C15F3C;     /* Claude橙 - 浅色模式 */
+  --primary-foreground: #FFFFFF;
+  /* 奢华点缀色 */
+  --gold: #C15F3C;        /* Claude橙统一 */
+  --burgundy: #8B3A3A;    /* 酒红色 */
+  /* 侧边栏 */
+  --sidebar: #EDE9E0;     /* 浅灰白侧边栏 - 纸张感 */
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #C15F3C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E5E0D6;  /* 选中项浅米色 */
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #D9D4CA;
+  --sidebar-ring: #C15F3C;
+  /* 其他颜色 */
+  --secondary: #F0EBE2;
+  --secondary-foreground: #1A1A1A;
+  --muted: #E8E3DA;
+  --muted-foreground: #6B6B6B;
+  --accent: #E5E0D6;
+  --accent-foreground: #1A1A1A;
+  --destructive: #DC2626;
+  --border: #D9D4CA;
+  --input: #E5E0D6;
+  --ring: #C15F3C;
+  --chart-1: #C15F3C;
+  --chart-2: #8B7355;
+  --chart-3: #6B8E8E;
+  --chart-4: #7A6B5A;
+  --chart-5: #5A6B7A;
+}
+
+.dark {
+  --background: #1A1A1A;
+  --foreground: #F5F1E9;
+  --card: #232323;
+  --card-foreground: #F5F1E9;
+  --popover: #232323;
+  --popover-foreground: #F5F1E9;
+  --primary: #D4765A;
+  --primary-foreground: #1A1A1A;
+  --gold: #D4765A;
+  --burgundy: #A65050;
+  --sidebar: #141414;
+  --sidebar-foreground: #F5F1E9;
+  --sidebar-primary: #D4765A;
+  --sidebar-primary-foreground: #1A1A1A;
+  --sidebar-accent: #2A2A2A;
+  --sidebar-accent-foreground: #F5F1E9;
+  --sidebar-border: #333333;
+  --sidebar-ring: #D4765A;
+  --secondary: #262626;
+  --secondary-foreground: #F5F1E9;
+  --muted: #262626;
+  --muted-foreground: #A0A0A0;
+  --accent: #2A2A2A;
+  --accent-foreground: #F5F1E9;
+  --destructive: #EF4444;
+  --border: #333333;
+  --input: #333333;
+  --ring: #D4765A;
+  --chart-1: #D4765A;
+  --chart-2: #A08B7A;
+  --chart-3: #7A9E9E;
+  --chart-4: #8A7B6A;
+  --chart-5: #6A7B8A;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 纸张纹理效果 */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 全局字体 - 优雅组合 */
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+/* 标题字体 - Display Serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+/* 艺术标题 - 斜体 */
+.artistic-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* 侧边栏 - Claude.ai 风格 */
+.sidebar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: var(--sidebar-foreground);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2px;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.dark .sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-item.active {
+  background-color: var(--sidebar-accent);
+}
+
+/* 左侧图标悬停移动效果 - 纸张移动感 */
+.sidebar-item:hover .sidebar-icon {
+  transform: translateX(2px);
+}
+
+.sidebar-icon {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+/* 输入框 - Claude.ai 风格 */
+.input-container {
+  position: relative;
+}
+
+.input-box {
+  width: 100%;
+  padding: 16px 20px;
+  padding-left: 56px;
+  padding-right: 120px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 15px;
+  color: var(--foreground);
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  resize: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.input-box::placeholder {
+  color: var(--muted-foreground);
+}
+
+.input-box:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(193, 95, 60, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 按钮 - Claude.ai 风格 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(193, 95, 60, 0.2);
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(193, 95, 60, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* 卡片 - 奢华纸张质感 */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* 音乐卡片悬停 */
+.music-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.music-card:hover {
+  transform: translateY(-4px);
+}
+
+.music-card:hover .card-cover img {
+  transform: scale(1.05);
+}
+
+/* 封面 */
+.card-cover {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--muted);
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* 播放按钮遮罩 */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.music-card:hover .play-overlay,
+.track-item:hover .play-overlay {
+  opacity: 1;
+}
+
+/* 播放按钮 */
+.play-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.9);
+  transition: transform 0.2s ease;
+}
+
+.music-card:hover .play-button,
+.track-item:hover .play-button {
+  transform: scale(1);
+}
+
+/* 曲目列表项 */
+.track-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.track-item:hover {
+  background: var(--accent);
+  transform: translateX(4px);
+}
+
+.track-item.active {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.track-item .track-cover {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.track-item .track-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 歌手名称 */
+.artist-name {
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+/* 时长 */
+.duration {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 分割线 */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 3px;
+  opacity: 0.3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  opacity: 0.5;
+}
+
+/* 音频可视化背景 */
+.audio-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 频谱动画 */
+.spectrum-bar {
+  animation: spectrum 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes spectrum {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* 唱片旋转 */
+.spin {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 淡入 */
+.fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片入场动画 */
+.card-enter {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: cardEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cardEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 交错入场延迟 */
+.card-enter-delay-1 { animation-delay: 0.05s; }
+.card-enter-delay-2 { animation-delay: 0.1s; }
+.card-enter-delay-3 { animation-delay: 0.15s; }
+.card-enter-delay-4 { animation-delay: 0.2s; }
+.card-enter-delay-5 { animation-delay: 0.25s; }
+.card-enter-delay-6 { animation-delay: 0.3s; }
+.card-enter-delay-7 { animation-delay: 0.35s; }
+.card-enter-delay-8 { animation-delay: 0.4s; }
+
+/* 按钮悬停效果 */
+.btn-hover-lift {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 选中状态指示器 */
+.active-indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sidebar-item.active .active-indicator {
+  opacity: 1;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--accent);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  transition: all 0.15s ease;
+}
+
+.tag:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  opacity: 0.4;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ====== 高级动效 ====== */
+
+/* 玻璃拟态基础 */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.dark .glass {
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 高级卡片悬浮 */
+.card-premium {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-premium:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--gold);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(193, 95, 60, 0.1);
+}
+
+.card-premium:hover::before {
+  opacity: 1;
+}
+
+.card-premium .card-cover img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover .card-cover img {
+  transform: scale(1.08);
+}
+
+/* 悬浮光效 */
+.hover-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(193, 95, 60, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  pointer-events: none;
+}
+
+.hover-glow:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 音频波纹动画 */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  animation: rippleEffect 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  0% {
+    opacity: 0.3;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* 频谱可视化增强 */
+.spectrum-enhanced {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  height: 24px;
+}
+
+.spectrum-enhanced .bar {
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, var(--primary), var(--gold));
+  animation: spectrumEnhanced 0.8s ease-in-out infinite;
+}
+
+.spectrum-enhanced .bar:nth-child(1) { animation-delay: 0s; }
+.spectrum-enhanced .bar:nth-child(2) { animation-delay: 0.1s; }
+.spectrum-enhanced .bar:nth-child(3) { animation-delay: 0.05s; }
+.spectrum-enhanced .bar:nth-child(4) { animation-delay: 0.15s; }
+.spectrum-enhanced .bar:nth-child(5) { animation-delay: 0.08s; }
+.spectrum-enhanced .bar:nth-child(6) { animation-delay: 0.12s; }
+.spectrum-enhanced .bar:nth-child(7) { animation-delay: 0.03s; }
+.spectrum-enhanced .bar:nth-child(8) { animation-delay: 0.18s; }
+
+@keyframes spectrumEnhanced {
+  0%, 100% { 
+    height: 20%; 
+    opacity: 0.5;
+  }
+  50% { 
+    height: 100%; 
+    opacity: 1;
+  }
+}
+
+/* 磁吸悬浮效果 */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic-hover:hover {
+  transform: scale(1.05);
+}
+
+/* 文字渐变 */
+.text-gradient {
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 边框流动动画 */
+.border-flow {
+  position: relative;
+}
+
+.border-flow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--primary), var(--gold), var(--primary));
+  background-size: 200% 100%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderFlow 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-flow:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 页面切换动画 */
+.page-enter {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: pageEnter 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 交错列表动画 */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: staggerIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes staggerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.2s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.3s; }
+.stagger-item:nth-child(7) { animation-delay: 0.35s; }
+.stagger-item:nth-child(8) { animation-delay: 0.4s; }
+
+/* 脉冲播放按钮 */
+.play-pulse {
+  position: relative;
+}
+
+.play-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0;
+  animation: playPulse 1.5s ease-out infinite;
+}
+
+@keyframes playPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* 悬浮视差效果 */
+.parallax-hover {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.parallax-hover:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* 渐显遮罩 */
+.reveal-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-premium:hover .reveal-overlay {
+  opacity: 1;
+}
+
+/* 播放按钮3D效果 */
+.play-3d {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.play-3d:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(193, 95, 60, 0.3);
+}
+
+/* 进度条流光 */
+.progress-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* 侧边栏图标弹跳 */
+.sidebar-bounce {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.sidebar-item:active .sidebar-bounce {
+  transform: scale(0.9);
+}
+
+/* 选中状态闪烁 */
+.active-pulse {
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(193, 95, 60, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(193, 95, 60, 0);
+  }
+}
+
+/* 背景微动 */
+.bg-drift {
+  animation: bgDrift 20s ease-in-out infinite;
+}
+
+@keyframes bgDrift {
+  0%, 100% { 
+    background-position: 0% 0%;
+  }
+  25% { 
+    background-position: 2% 2%;
+  }
+  50% { 
+    background-position: 0% 4%;
+  }
+  75% { 
+    background-position: -2% 2%;
+  }
+}
+
+/* 加载骨架屏闪烁 */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 0%,
+    var(--accent) 50%,
+    var(--muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 爱心收藏动画 */
+.heart-beat {
+  transition: transform 0.2s ease;
+}
+
+.heart-beat:active {
+  transform: scale(1.3);
+}
+
+.heart-beat.liked {
+  animation: heartBeat 0.4s ease;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* 模糊进出场 */
+.blur-in {
+  animation: blurIn 0.5s ease-out forwards;
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* 精致分隔线 */
+.divider-elegant {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 20px 0;
+}
+
+/* ====== 发现音乐页面专属动画 ====== */
+
+/* 页面淡入 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 滑入动画 */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* 标题上浮 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 交错入场增强 */
+@keyframes staggerInEnhanced {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 卡片缩放点击 */
+.discover-card {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 200ms ease-out;
+}
+
+.discover-card:hover {
+  transform: scale(1.03);
+}
+
+.discover-card:active {
+  transform: scale(0.98);
+}
+
+/* Tab 切换动画 */
+.tab-button {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-button:hover:not(.active) {
+  background-color: var(--accent);
+}
+
+/* 返回按钮联动 */
+.back-button {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+}
+
+.back-button:hover svg {
+  transform: translateX(-2px);
+}
+
+/* 发现音乐页面变量 */
+:root {
+  --discover-bg: #FAF8F5;
+  --radius-card: 16px;
+  --radius-item: 8px;
+  --radius-input: 8px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --transition-fast: 200ms;
+  --transition-normal: 300ms;
+}
+
+.dark {
+  --discover-bg: #1A1A1A;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,81 @@
+@startuml 音乐网站ER图
+
+' ==================== 样式设置 ====================
+skinparam linetype ortho
+skinparam shadowing false
+skinparam backgroundColor #EDEDED
+skinparam defaultFontName "Microsoft YaHei"
+skinparam classAttributeIconSize 0
+
+hide circle
+hide empty members
+
+' ⚠️ 核心配置：超大实体 + 大字体 + 超大间距
+skinparam defaultFontSize 16
+skinparam nodesep 200
+skinparam ranksep 220
+
+' 实体样式：加粗边框 + 大尺寸
+skinparam entity {
+    BackgroundColor White
+    BorderColor Black
+    BorderWidth 2
+    FontSize 18
+    FontBold true
+    Padding 15
+    RoundCorner 5
+}
+
+top to bottom direction
+
+' ==================== 第1层：用户（顶部居中）====================
+
+entity "用户" as user
+
+' ==================== 第2层：核心内容（左右分离）====================
+entity "歌曲" as track
+together {
+    entity "歌手" as artist
+    entity "专辑" as album
+}
+entity "歌单" as playlist
+
+' ==================== 第3层：关联表 ====================
+entity "收藏记录" as fav
+entity "评论" as comment
+entity "播放历史" as history
+entity "歌单曲目" as pt
+
+' ==================== 第4层：管理员 ====================
+entity "管理员" as admin
+
+' ==================== 第5层：外部平台链 ====================
+entity "外部平台" as ep
+entity "外部歌单" as epl
+entity "外部曲目" as ept
+
+' ==================== 关系定义 ====================
+
+user -- track : 创作\nn:m
+user -- playlist : 创建\n1:n
+user -- fav : 收藏\n1:n
+user -- comment : 发表\n1:n
+
+track -- artist : 演唱\nn:1
+track -- album : 收录于\nn:1
+
+playlist -- pt : 包含\n1:n
+track -- pt : 包含于\nm:n
+
+user -- history : 播放\n1:n
+
+ep -- epl : 拥有\n1:n
+epl -- ept : 包含\n1:n
+user -- ep : 绑定\n1:n
+
+admin -- user : 用户管理\n1:n
+admin -- track : 音乐管理\n1:n
+admin -- playlist : 歌单管理\n1:n
+admin -- comment : 评论审核\n1:n
+
+@enduml
