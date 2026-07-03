@@ -18,7 +18,7 @@ ENV NEXT_PUBLIC_SITE_URL=http://127.0.0.1:7860
 
 COPY . /app
 
-RUN git clone --depth 1 https://github.com/Binaryify/NeteaseCloudMusicApi.git /opt/NeteaseCloudMusicApi \
+RUN cp -R /app/NeteaseCloudMusicApi /opt/NeteaseCloudMusicApi \
   && cd /opt/NeteaseCloudMusicApi \
   && npm install
 

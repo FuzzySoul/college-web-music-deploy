@@ -42,9 +42,6 @@ fastapi-cache-service/data/
 fastapi-cache-service/startup.log
 fastapi-cache-service/.omc/
 
-# NeteaseCloudMusicApi — deployed separately via fork
-NeteaseCloudMusicApi/
-
 # Local media (per老大 request)
 music/
 public/music/local/
